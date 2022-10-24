@@ -1,7 +1,0 @@
-data/
-iamges/
-*.pth
-*.jpg
-*.png
-*.tar
-__pycache__/
