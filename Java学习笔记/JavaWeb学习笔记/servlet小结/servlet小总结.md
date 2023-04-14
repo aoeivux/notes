@@ -136,3 +136,9 @@ Servlet 线程结束，Tomcat 将响应对象转换为 HTTP 响应发回给客�
 从该过程中，我们可以理解 Servlet 的生命周期：Servlet 类加载（对应 3 步）；Servlet 实例化（对应 3 步）；调用 init 方法（对应 3 步）；调用 service()方法（对应 4、5 步）；；调用 destroy()方法（对应 6 步）。
 
 Servlet 运行在 Servlet 容器中，其生命周期由容器来管理。Servlet 的生命周期通过 javax.servlet.Servlet 接口中的 init()、service()和 destroy()方法来表示。
+
+客户端如何访问 servlet 文件
+![](2023-04-14-14-59-17.png)
+
+生命周期
+![](2023-04-14-15-21-44.png)
