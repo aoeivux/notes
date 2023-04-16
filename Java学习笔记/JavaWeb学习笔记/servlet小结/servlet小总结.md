@@ -2,16 +2,18 @@
 
 1. 创建 form 表单，确定提交方式
 
-2. 创建 servlet 类：创建类，继承 HttpServlet，该类在 servlet-api.jar；复写 doGet/doPost 方法
+2. 创建 servlet 类：创建类，继承 httpservlet，该类在 servlet-api.jar；复写 doget/dopost 方法
 
 3. 配置请求映射
+
+> xml 方式
 
 ```xml
 <servlet>
      <!--servlet名称，与配置文件中的<servlet-mapping>标签中的servlet-name匹配-->
      <servlet-name>servlet01</servlet-name>
-     <!--servlet类的全名称，原理：Java反射机制-->
-     <servlet-class>com.wxkj.servlet.action.ServletAction</servlet-class>
+     <!--servlet类的全名称，原理：java反射机制-->
+     <servlet-class>com.wxkj.servlet.action.servletaction</servlet-class>
 </servlet>
 <servlet-mapping>
       <!--servlet名称，与配置文件中的<servlet>标签中的servlet-name匹配-->
@@ -20,6 +22,10 @@
       <url-pattern>/form01</url-pattern>
 </servlet-mapping>
 ```
+
+> 注解方式
+ ``@WebServlet()``
+![](2023-04-16-10-21-37.png)
 
 4. 表单的 method 属性决定了 servlet 类对象呗访问的是 doGet 还是 doPost
 
