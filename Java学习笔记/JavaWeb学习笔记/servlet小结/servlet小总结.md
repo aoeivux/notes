@@ -24,8 +24,8 @@
 ```
 
 > 注解方式
- ``@WebServlet()``
-![](2023-04-16-10-21-37.png)
+> `@WebServlet()`
+> ![](2023-04-16-10-21-37.png)
 
 4. 表单的 method 属性决定了 servlet 类对象呗访问的是 doGet 还是 doPost
 
