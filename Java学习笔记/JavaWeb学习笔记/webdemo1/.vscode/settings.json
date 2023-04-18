@@ -1,0 +1,12 @@
+{
+	"java.project.referencedLibraries": [
+		"lib/**/*.jar",
+		"web/WEB-INF/lib/jsp-api.jar",
+		"web/WEB-INF/lib/jstl.jar",
+		"web/WEB-INF/lib/mysql-connector-java-8.0.30.jar",
+		"web/WEB-INF/lib/servlet-api.jar",
+		"web/WEB-INF/lib/standard.jar"
+	],
+	"java.dependency.syncWithFolderExplorer": true,
+	"java.dependency.packagePresentation": "hierarchical"
+}
