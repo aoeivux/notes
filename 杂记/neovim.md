@@ -6,7 +6,7 @@
 On linux and macOS:
 
 ```shell
-git clone https://github.com/aoeivux/nvim  ~/.config/nvim 
+git clone https://github.com/aoeivux/nvim  ~/.config/nvim
 chmod +x ~/.config/nvim/installer/linux-mac.sh
 ./ ~/.config/nvim/installer/linux-mac.sh
 ```
@@ -21,29 +21,33 @@ powershell.exe -executionpolicy bypass -file $HOME\AppData\Local\installer\windo
 ```
 
 # 🎉USAGE
+
 ## ✨neovim install
 
 run commands in neovim with:
+
 ```shell
 :PackerSync
 ```
 
 ## 👀vscode settings
+
 put the others/vscode/settings and others/vscode/keybindings file into:
+
 ```shell
 C:\Users\xean\AppData\Roaming\Code\User\
 ```
 
 ## 🎂JetBrains settings
+
 1. put other/jetbrains/keymaps directory into:
+
 ```shell
 C:\Users\xxx\AppData\Roaming\JetBrains\IntelliJIdeaxxx\
 ```
+
 2. put others/jetbrains/.ideavimrc into:
 
 ```shell
 ~/.ideavimrc
 ```
-
-
-
