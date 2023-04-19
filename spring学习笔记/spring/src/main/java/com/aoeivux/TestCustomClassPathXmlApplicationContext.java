@@ -8,6 +8,5 @@ public class TestCustomClassPathXmlApplicationContext {
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("src/main/resources/spring.xml");
         Student student = (Student) applicationContext.getBean("student");
-        System.out.println(student);
     }
 }

@@ -1,3 +1,4 @@
+import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -33,4 +34,22 @@ public class Test {
             throw new RuntimeException(e);
         }
     }
+
+	@org.junit.Test
+	public void test3() {
+		try {
+			Class<?> clazz = Class.forName("com.aoeivux.entity.Address");
+			clazz.getDeclaredMethod();
+
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (NoSuchFieldException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 }
