@@ -29,3 +29,5 @@ BEGIN								-- 函数方法体开始
 	END WHILE;		-- 循环结束
 	RETURN i;
 END; 								-- 函数方法体结束
+
+-- asd

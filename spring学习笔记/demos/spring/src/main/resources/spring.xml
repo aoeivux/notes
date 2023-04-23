@@ -6,11 +6,29 @@
     <bean id="student" class="com.aoeivux.entity.Student" >
         <property name="id" value="1"></property>
         <property name="name" value="zs"></property>
-        <property name="address" ref="address"></property>
+		<property name="addresses">
+			<list>
+				<ref bean="address1"></ref>
+				<ref bean="address2"></ref>
+			</list>
+		</property>
+		<property name="address" ref="address3"></property>
     </bean>
 
-    <bean id="address" class="com.aoeivux.entity.Address">
-        <property name="id" value="1"></property>
-        <property name="name" value="长春路"></property>
-    </bean>
+	<bean id="address1" class="com.aoeivux.entity.Address">
+		<property name="id" value="1"></property>
+		<property name="name" value="长安路"></property>
+	</bean>
+	<bean id="address2" class="com.aoeivux.entity.Address">
+		<property name="id" value="2"></property>
+		<property name="name" value="北京路"></property>
+	</bean>
+	<bean id="address3" class="com.aoeivux.entity.Address">
+		<property name="id" value="3"></property>
+		<property name="name" value="科学大道"></property>
+	</bean>
+	<!-- spring继承 -->
+	<bean id="substudent" class="com.aoeivux.entity.Student" parent="student">
+		<property name="id" value="2"></property>
+	</bean>
 </beans>

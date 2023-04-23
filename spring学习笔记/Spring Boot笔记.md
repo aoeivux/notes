@@ -4,8 +4,8 @@ Spring Boot 是一个快速开发框架，可以迅速搭建出一套基于 Spri
 
 Spring Boot 开启了各种自动装配，从而简化代码的开发，不需要编写各种配置文件，只需要引入相关依赖就可以迅速搭建一个应用。
 
-- 特点
-
+-   特点
+sda
 1、不需要 web.xml
 
 2、不需要 springmvc.xml
@@ -16,7 +16,7 @@ Spring Boot 开启了各种自动装配，从而简化代码的开发，不需�
 
 5、个性化配置非常简单
 
-- 如何使用
+-   如何使用
 
 1、创建 Maven 工程，导入相关依赖。
 
@@ -172,7 +172,7 @@ public class StudentHandler {
 
 ```yaml
 server:
-  port: 9090
+    port: 9090
 ```
 
 7、启动类
@@ -195,7 +195,7 @@ public class Application {
 
 ### Spring Boot 整合 JSP
 
-- pom.xml
+-   pom.xml
 
 ```xml
 <parent>
@@ -237,19 +237,19 @@ public class Application {
 </dependencies>
 ```
 
-- 创建配置文件 application.yml
+-   创建配置文件 application.yml
 
 ```yaml
 server:
-  port: 8181
+    port: 8181
 spring:
-  mvc:
-    view:
-      prefix: /
-      suffix: .jsp
+    mvc:
+        view:
+            prefix: /
+            suffix: .jsp
 ```
 
-- 创建 Handler
+-   创建 Handler
 
 ```java
 package com.southwind.controller;
@@ -307,7 +307,7 @@ public class HelloHandler {
 }
 ```
 
-- JSP
+-   JSP
 
 ```jsp
 <%--
@@ -350,8 +350,6 @@ public class HelloHandler {
 </html>
 ```
 
-
-
 ```jsp
 <%--
   Created by IntelliJ IDEA.
@@ -375,8 +373,6 @@ public class HelloHandler {
 </body>
 </html>
 ```
-
-
 
 ```jsp
 <%--
@@ -412,7 +408,7 @@ Thymeleaf 模版是面向 Web 和独立环境的 Java 模版引擎，能够处�
 <p th:text="${message}"></p>
 ```
 
-- pom.xml
+-   pom.xml
 
 ```xml
 <!-- 继承父包 -->
@@ -443,20 +439,20 @@ Thymeleaf 模版是面向 Web 和独立环境的 Java 模版引擎，能够处�
 </dependencies>
 ```
 
-- appliction.yml
+-   appliction.yml
 
 ```yaml
 server:
-  port: 9090
+    port: 9090
 spring:
-  thymeleaf:
-    prefix: classpath:/templates/
-    suffix: .html
-    mode: HTML5
-    encoding: UTF-8
+    thymeleaf:
+        prefix: classpath:/templates/
+        suffix: .html
+        mode: HTML5
+        encoding: UTF-8
 ```
 
-- Handler
+-   Handler
 
 ```java
 package com.southwind.controller;
@@ -477,18 +473,18 @@ public class IndexHandler {
 }
 ```
 
-- HTML
+-   HTML
 
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <h1>Hello World</h1>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Title</title>
+    </head>
+    <body>
+        <h1>Hello World</h1>
+    </body>
 </html>
 ```
 
@@ -496,7 +492,7 @@ public class IndexHandler {
 
 ### Thymeleaf 常用语法
 
-- 赋值、拼接
+-   赋值、拼接
 
 ```java
 @GetMapping("/index2")
@@ -512,7 +508,7 @@ public String index2(Map<String,String> map){
 <p th:text="|学生姓名是,${name}|"></p>
 ```
 
-- 条件判断：if/unless
+-   条件判断：if/unless
 
 th:if 表示条件成立时显示内容，th:unless 表示条件不成立时显示内容
 
@@ -529,7 +525,7 @@ public String index3(Map<String,Boolean> map){
 <p th:unless="${flag != true}" th:text="unless判断成立"></p>
 ```
 
-- 循环
+-   循环
 
 ```java
 @GetMapping("/index")
@@ -546,36 +542,37 @@ public String index(Model model){
 
 ```html
 <table>
-  <tr>
-    <th>index</th>
-    <th>count</th>
-    <th>学生ID</th>
-    <th>学生姓名</th>
-    <th>学生年龄</th>
-  </tr>
-  <tr th:each="student,stat:${list}" th:style="'background-color:'+@{${stat.odd}?'#F2F2F2'}">
-    <td th:text="${stat.index}"></td>
-    <td th:text="${stat.count}"></td>
-    <td th:text="${student.id}"></td>
-    <td th:text="${student.name}"></td>
-    <td th:text="${student.age}"></td>
-  </tr>
+    <tr>
+        <th>index</th>
+        <th>count</th>
+        <th>学生ID</th>
+        <th>学生姓名</th>
+        <th>学生年龄</th>
+    </tr>
+    <tr
+        th:each="student,stat:${list}"
+        th:style="'background-color:'+@{${stat.odd}?'#F2F2F2'}"
+    >
+        <td th:text="${stat.index}"></td>
+        <td th:text="${stat.count}"></td>
+        <td th:text="${student.id}"></td>
+        <td th:text="${student.name}"></td>
+        <td th:text="${student.age}"></td>
+    </tr>
 </table>
 ```
 
 stat 是状态变量，属性：
 
-- index 集合中元素的index（从0开始）
-- count 集合中元素的count（从1开始）
-- size 集合的大小
-- current 当前迭代变量
-- even/odd 当前迭代是否为偶数/奇数（从0开始计算）
-- first 当前迭代的元素是否是第一个
-- last 当前迭代的元素是否是最后一个
+-   index 集合中元素的 index（从 0 开始）
+-   count 集合中元素的 count（从 1 开始）
+-   size 集合的大小
+-   current 当前迭代变量
+-   even/odd 当前迭代是否为偶数/奇数（从 0 开始计算）
+-   first 当前迭代的元素是否是第一个
+-   last 当前迭代的元素是否是最后一个
 
-
-
-- URL
+-   URL
 
 Thymeleaf 对于 URL 的处理是通过 `@{...}` 进行处理，结合 th:href 、th:src
 
@@ -583,15 +580,15 @@ Thymeleaf 对于 URL 的处理是通过 `@{...}` 进行处理，结合 th:href �
 <h1>Hello World</h1>
 <a th:href="@{http://www.baidu.com}">跳转</a>
 <a th:href="@{http://localhost:9090/index/url/{na}(na=${name})}">跳转2</a>
-<img th:src="${src}">
+<img th:src="${src}" />
 <div th:style="'background:url('+ @{${src}} +');'">
-<br/>
-<br/>
-<br/>
+    <br />
+    <br />
+    <br />
 </div>
 ```
 
-- 三元运算
+-   三元运算
 
 ```java
 @GetMapping("/eq")
@@ -602,19 +599,17 @@ public String eq(Model model){
 ```
 
 ```html
-<input th:value="${age gt 30?'中年':'青年'}"/>
+<input th:value="${age gt 30?'中年':'青年'}" />
 ```
 
-- gt great than 大于
-- ge great equal 大于等于
-- eq equal 等于
-- lt less than 小于
-- le less equal 小于等于
-- ne not equal 不等于
+-   gt great than 大于
+-   ge great equal 大于等于
+-   eq equal 等于
+-   lt less than 小于
+-   le less equal 小于等于
+-   ne not equal 不等于
 
-
-
-- switch
+-   switch
 
 ```java
 @GetMapping("/switch")
@@ -626,22 +621,20 @@ public String switchTest(Model model){
 
 ```html
 <div th:switch="${gender}">
-  <p th:case="女">女</p>
-  <p th:case="男">男</p>
-  <p th:case="*">未知</p>
+    <p th:case="女">女</p>
+    <p th:case="男">男</p>
+    <p th:case="*">未知</p>
 </div>
 ```
 
-
-
-- 基本对象
-  - `#ctx` ：上下文对象
-  - `#vars`：上下文变量
-  - `#locale`：区域对象
-  - `#request`：HttpServletRequest 对象
-  - `#response`：HttpServletResponse 对象
-  - `#session`：HttpSession 对象
-  - `#servletContext`：ServletContext 对象
+-   基本对象
+    -   `#ctx` ：上下文对象
+    -   `#vars`：上下文变量
+    -   `#locale`：区域对象
+    -   `#request`：HttpServletRequest 对象
+    -   `#response`：HttpServletResponse 对象
+    -   `#session`：HttpSession 对象
+    -   `#servletContext`：ServletContext 对象
 
 ```java
 @GetMapping("/object")
@@ -658,9 +651,7 @@ public String object(HttpServletRequest request){
 <p th:text="${#locale.country}"></p>
 ```
 
-
-
-- 内嵌对象
+-   内嵌对象
 
 可以直接通过 # 访问。
 
@@ -714,8 +705,6 @@ public String util(Model model){
 <p th:text="${#strings.randomAlphanumeric(count)}"></p>
 ```
 
-
-
 ### Spring Boot 数据校验
 
 ```java
@@ -753,11 +742,9 @@ public void validatorUser(@Valid User user,BindingResult bindingResult){
 }
 ```
 
-
-
 ### Spring Boot 整合 JDBC
 
-- pom.xml
+-   pom.xml
 
 ```xml
 <dependency>
@@ -772,25 +759,25 @@ public void validatorUser(@Valid User user,BindingResult bindingResult){
 </dependency>
 ```
 
-- application.yml
+-   application.yml
 
 ```yaml
 server:
-  port: 9090
+    port: 9090
 spring:
-  thymeleaf:
-    prefix: classpath:/templates/
-    suffix: .html
-    mode: HTML5
-    encoding: UTF-8
-  datasource:
-    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8
-    username: root
-    password: root
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    thymeleaf:
+        prefix: classpath:/templates/
+        suffix: .html
+        mode: HTML5
+        encoding: UTF-8
+    datasource:
+        url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8
+        username: root
+        password: root
+        driver-class-name: com.mysql.cj.jdbc.Driver
 ```
 
-- User
+-   User
 
 ```java
 package com.southwind.entity;
@@ -814,7 +801,7 @@ public class User {
 }
 ```
 
-- UserRepository
+-   UserRepository
 
 ```java
 package com.southwind.repository;
@@ -832,7 +819,7 @@ public interface UserRepository {
 }
 ```
 
-- UserRepositoryImpl
+-   UserRepositoryImpl
 
 ```java
 package com.southwind.repository.impl;
@@ -879,7 +866,7 @@ public class UserRepositoryImpl implements UserRepository {
 }
 ```
 
-- Handler
+-   Handler
 
 ```java
 package com.southwind.controller;
@@ -925,11 +912,9 @@ public class UserHandler {
 }
 ```
 
-
-
 ### Spring Boot 整合 MyBatis
 
-- pom.xml
+-   pom.xml
 
 ```xml
 <dependency>
@@ -939,28 +924,28 @@ public class UserHandler {
 </dependency>
 ```
 
-- application.yml
+-   application.yml
 
 ```yaml
 server:
-  port: 9090
+    port: 9090
 spring:
-  thymeleaf:
-    prefix: classpath:/templates/
-    suffix: .html
-    mode: HTML5
-    encoding: UTF-8
-  datasource:
-    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8
-    username: root
-    password: root
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    thymeleaf:
+        prefix: classpath:/templates/
+        suffix: .html
+        mode: HTML5
+        encoding: UTF-8
+    datasource:
+        url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8
+        username: root
+        password: root
+        driver-class-name: com.mysql.cj.jdbc.Driver
 mybatis:
-  mapper-locations: classpath:/mapping/*.xml
-  type-aliases-package: com.southwind.entity
+    mapper-locations: classpath:/mapping/*.xml
+    type-aliases-package: com.southwind.entity
 ```
 
-- UserRepository
+-   UserRepository
 
 ```java
 package com.southwind.mapper;
@@ -979,7 +964,7 @@ public interface UserRepository {
 }
 ```
 
-- UserRepository.xml
+-   UserRepository.xml
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -1012,7 +997,7 @@ public interface UserRepository {
 </mapper>
 ```
 
-- User
+-   User
 
 ```java
 package com.southwind.entity;
@@ -1036,7 +1021,7 @@ public class User {
 }
 ```
 
-- Handler
+-   Handler
 
 ```java
 package com.southwind.controller;
@@ -1107,123 +1092,142 @@ public class UserMapperHandler {
 }
 ```
 
-- HTML
+-   HTML
 
 ```html
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <form action="/mapper/save" method="post">
-        用户姓名：<input type="text" name="name" /><br/>
-        用户成绩：<input type="text" name="score" /><br/>
-        <input type="submit" value="提交"/>
-    </form>
-</body>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8" />
+            <title>Title</title>
+        </head>
+        <body>
+            <form action="/mapper/save" method="post">
+                用户姓名：<input type="text" name="name" /><br />
+                用户成绩：<input type="text" name="score" /><br />
+                <input type="submit" value="提交" />
+            </form>
+        </body>
+    </html>
 </html>
 ```
-
-
 
 ```html
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <form action="/mapper/update" method="post">
-        用户ID：<input type="text" name="id" th:value="${user.id}" readonly/><br/>
-        用户姓名：<input type="text" name="name" th:value="${user.name}" /><br/>
-        用户成绩：<input type="text" name="score" th:value="${user.score}" /><br/>
-        <input type="submit" value="提交"/>
-    </form>
-</body>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8" />
+            <title>Title</title>
+        </head>
+        <body>
+            <form action="/mapper/update" method="post">
+                用户ID：<input
+                    type="text"
+                    name="id"
+                    th:value="${user.id}"
+                    readonly
+                /><br />
+                用户姓名：<input
+                    type="text"
+                    name="name"
+                    th:value="${user.name}"
+                /><br />
+                用户成绩：<input
+                    type="text"
+                    name="score"
+                    th:value="${user.score}"
+                /><br />
+                <input type="submit" value="提交" />
+            </form>
+        </body>
+    </html>
 </html>
 ```
-
-
 
 ```html
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <script type="text/javascript" th:src="@{/jquery-3.3.1.min.js}"></script>
-    <script type="text/javascript">
-        $(function(){
-            $("#first").click(function(){
-                var page = $("#page").text();
-                page = parseInt(page);
-                if(page == 1){
-                    return false;
-                }
-                window.location.href="/mapper/findAll/1";
-            });
-            $("#previous").click(function(){
-                var page = $("#page").text();
-                page = parseInt(page);
-                if(page == 1){
-                    return false;
-                }
-                page = page-1;
-                window.location.href="/mapper/findAll/"+page;
-            });
-            $("#next").click(function(){
-                var page = $("#page").text();
-                var pages = $("#pages").text();
-                if(page == pages){
-                    return false;
-                }
-                page = parseInt(page);
-                page = page+1;
-                window.location.href="/mapper/findAll/"+page;
-            });
-            $("#last").click(function(){
-                var page = $("#page").text();
-                var pages = $("#pages").text();
-                if(page == pages){
-                    return false;
-                }
-                window.location.href="/mapper/findAll/"+pages;
-            });
-        });
-    </script>
-</head>
-<body>
-    <h1>用户信息</h1>
-    <table>
-        <tr>
-            <th>用户ID</th>
-            <th>用户名</th>
-            <th>成绩</th>
-            <th>操作</th>
-        </tr>
-        <tr th:each="user:${list}">
-            <td th:text="${user.id}"></td>
-            <td th:text="${user.name}"></td>
-            <td th:text="${user.score}"></td>
-            <td>
-                <a th:href="@{/mapper/deleteById/{id}(id=${user.id})}">删除</a>
-                <a th:href="@{/mapper/findById(id=${user.id})}">修改</a>
-            </td>
-        </tr>
-    </table>
-    <a id="first" href="javascript:void(0)">首页</a>
-    <a id="previous" href="javascript:void(0)">上一页</a>
-    <span id="page" th:text="${page}"></span>/<span id="pages" th:text="${pages}"></span>
-    <a id="next" href="javascript:void(0)">下一页</a>
-    <a id="last" href="javascript:void(0)">尾页</a><br/>
-    <a href="/mapper/redirect/save">添加用户</a>
-</body>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8" />
+            <title>Title</title>
+            <script
+                type="text/javascript"
+                th:src="@{/jquery-3.3.1.min.js}"
+            ></script>
+            <script type="text/javascript">
+                $(function () {
+                    $("#first").click(function () {
+                        var page = $("#page").text();
+                        page = parseInt(page);
+                        if (page == 1) {
+                            return false;
+                        }
+                        window.location.href = "/mapper/findAll/1";
+                    });
+                    $("#previous").click(function () {
+                        var page = $("#page").text();
+                        page = parseInt(page);
+                        if (page == 1) {
+                            return false;
+                        }
+                        page = page - 1;
+                        window.location.href = "/mapper/findAll/" + page;
+                    });
+                    $("#next").click(function () {
+                        var page = $("#page").text();
+                        var pages = $("#pages").text();
+                        if (page == pages) {
+                            return false;
+                        }
+                        page = parseInt(page);
+                        page = page + 1;
+                        window.location.href = "/mapper/findAll/" + page;
+                    });
+                    $("#last").click(function () {
+                        var page = $("#page").text();
+                        var pages = $("#pages").text();
+                        if (page == pages) {
+                            return false;
+                        }
+                        window.location.href = "/mapper/findAll/" + pages;
+                    });
+                });
+            </script>
+        </head>
+        <body>
+            <h1>用户信息</h1>
+            <table>
+                <tr>
+                    <th>用户ID</th>
+                    <th>用户名</th>
+                    <th>成绩</th>
+                    <th>操作</th>
+                </tr>
+                <tr th:each="user:${list}">
+                    <td th:text="${user.id}"></td>
+                    <td th:text="${user.name}"></td>
+                    <td th:text="${user.score}"></td>
+                    <td>
+                        <a th:href="@{/mapper/deleteById/{id}(id=${user.id})}"
+                            >删除</a
+                        >
+                        <a th:href="@{/mapper/findById(id=${user.id})}">修改</a>
+                    </td>
+                </tr>
+            </table>
+            <a id="first" href="javascript:void(0)">首页</a>
+            <a id="previous" href="javascript:void(0)">上一页</a>
+            <span id="page" th:text="${page}"></span>/<span
+                id="pages"
+                th:text="${pages}"
+            ></span>
+            <a id="next" href="javascript:void(0)">下一页</a>
+            <a id="last" href="javascript:void(0)">尾页</a><br />
+            <a href="/mapper/redirect/save">添加用户</a>
+        </body>
+    </html>
 </html>
 ```
-
